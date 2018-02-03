@@ -79,11 +79,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+  production:
+    url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: auth0app_production
-  username: auth0app
-  password: <%= ENV['AUTH0APP_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: auth0app_production
+#   username: auth0app
+#   password: <%= ENV['AUTH0APP_DATABASE_PASSWORD'] %>
