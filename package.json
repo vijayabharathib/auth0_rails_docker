@@ -1,5 +1,5 @@
 {
-  "name": "auth0app",
+  "name": "auth0_rails_docker",
   "private": true,
   "dependencies": {}
 }
