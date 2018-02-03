@@ -4,7 +4,11 @@ rvm:
 services:
   - postgresql
 before_script:
+<<<<<<< HEAD
   - cp config/database.travis.yml config/database.yml
+=======
+  - cp config/database.yml.travis config/database.yml
+>>>>>>> a029fc904415a830d0fa00e56e070402eeda6437
   - psql -c 'create database auth0app_test;' -U postgres
 script:
   - bin/rake db:migrate RAILS_ENV=test
