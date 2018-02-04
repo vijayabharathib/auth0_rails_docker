@@ -82,3 +82,49 @@ div {
 label {
   display: block;
 }
+
+.jumbotron {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 32em;
+  text-align: center;
+}
+
+.btn {
+  margin: 0 auto;
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  &:link{
+    color: #fff;
+  }
+  &:visited{
+    color: #fff;
+  }
+  &:hover{
+    color: #fff;
+  }
+  &:active{
+    color: #fff;
+  }
+}
+
+.btn-lg {
+  font-size: 2em;
+}
+
+.btn-success {
+  background: #66f;
+  &:hover {
+    background: #33f;
+  }
+}
+
+.btn-warning {
+  background: #c31;
+  &:hover{
+    background: #910;
+  }
+}

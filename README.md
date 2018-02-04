@@ -1,4 +1,6 @@
 # Rails App on Docker secured with Auth0
+---
+[![Build Status](https://travis-ci.org/vijayabharathib/auth0_rails_docker.svg?branch=staging)](https://travis-ci.org/vijayabharathib/auth0_rails_docker)
 
 This app is a prototype built on **Ruby on Rails**. It uses `docker` for development workflow. Automatically deploys to Heroku pipeline when there is a new commit to repository.
 
@@ -49,14 +51,36 @@ Use the log menu under options to check logs
 * db:migrate is required as first script before test runs (to create a working database copy)
 
 ## Secure the app with Auth0
-* introduce user model
-* use callback from auth0
-* provide sign up / login functionality
+1. Sign up
+2. Create a domain (tugboat)
+3. Create a client (bookstalldev)
+4. Add env variables to docker (not working)
+5. set callback URLs
+6. install gem dependencies (dc up --build)
+7. setup initializer middleware (auth0)
+8. add controllers for auth0 callback `rails generate controller auth0 callback failure --skip-template-engine --skip-assets`
+9. amend controllers to handle success and failure (if ownership of the file is not with you, `chown`)
+10. add routes to handle success and failure
+11. add sessions helper
+12. add controller for home to host login button `dc run --rm --user $(id -u):$(id -g) auth0 rails generate controller home`
+13. add a concern for 'secured'
+14. dashboard controller to respond to successful login
+15. url mismatch
+Callback URL mismatch.
+The url "http://localhost:3000/auth/oauth2/callback" is not in the list of allowed callback URLs: http://localhost:3000/auth/auth0/callback.
+16. update dashboard with user info
+17. *MISSING EMAIL* fixed by including email to the scope within the auth0.rb initializer.
+18. add logout controller
+19. logout controller does not work as `secret.yml` needs to be updated with auth0 entries.
 
 ## Fine Tune
 * style app with scss
 * set up a short menu
 * make it usable
+
+## Security
+Change the SECRET_KEY tokens used in snapshots/source codes. Especially for prod, use Heroku env variables
+
 
 
 
