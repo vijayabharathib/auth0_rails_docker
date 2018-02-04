@@ -1,4 +1,6 @@
 # Rails App on Docker secured with Auth0
+---
+[![Build Status](https://travis-ci.org/vijayabharathib/auth0_rails_docker.svg?branch=staging)](https://travis-ci.org/vijayabharathib/auth0_rails_docker)
 
 This app is a prototype built on **Ruby on Rails**. It uses `docker` for development workflow. Automatically deploys to Heroku pipeline when there is a new commit to repository.
 
@@ -66,6 +68,10 @@ Use the log menu under options to check logs
 15. url mismatch
 Callback URL mismatch.
 The url "http://localhost:3000/auth/oauth2/callback" is not in the list of allowed callback URLs: http://localhost:3000/auth/auth0/callback.
+16. update dashboard with user info
+17. *MISSING EMAIL* fixed by including email to the scope within the auth0.rb initializer.
+18. add logout controller
+19. logout controller does not work as `secret.yml` needs to be updated with auth0 entries.
 
 ## Fine Tune
 * style app with scss
