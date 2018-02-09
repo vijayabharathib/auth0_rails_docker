@@ -1,3 +1,17 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero.jumbo-thumbnail {
+    width: 10em;
+}
+
+.book_list {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2em;
+    box-shadow: 2px 2px 4px 2px #333;
+    max-width: 32em;
+    min-width: 20em;
+    list-style: none;
+}

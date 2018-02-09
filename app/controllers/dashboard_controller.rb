@@ -1,7 +1,8 @@
 class DashboardController < ApplicationController
-    include Secured
+    #include Secured
+    before_action :authenticate_user!
 
     def show
-        @user=session[:userinfo]
+        @user=@current_user
     end
 end

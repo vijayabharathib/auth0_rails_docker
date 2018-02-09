@@ -1,10 +1,12 @@
 body {
-  background-color: #fff;
+  background-color: #ddd;
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  height: 100%;
+
 }
 
 p, ol, ul, td {
@@ -127,4 +129,14 @@ label {
   &:hover{
     background: #910;
   }
+}
+
+.jumbotron{
+  min-width: 22em;
+  max-width: 32em;
+  border: 1px solid #999;
+  padding: 2em;
+  border-radius: 5px;
+  background: #eee;
+  box-shadow: 2px 2px 6px 1px #333;
 }

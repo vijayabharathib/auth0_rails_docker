@@ -1,8 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
-
-<table>
+<ul class="book_list">
+    <% @books.each do |book| %>
+      <li class="book_entry">
+        <h2><%= book.title %></h2>
+        <div class="isbn"><%= book.isbn %></div>
+        <div class="author"><%= book.author.name %></div >
+        <div class="publisher"><%= book.publisher.name %></div >
+        <div class="actions"><%= link_to 'Show', book %>
+        <%= link_to 'Edit', edit_book_path(book) %>
+        <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </li>
+    <% end %>
+</ul>
+<!--table>
   <thead>
     <tr>
       <th>Title</th>
@@ -26,8 +38,11 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table-->
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Book', new_book_path %>
+<% else %>
+<%= link_to 'Login to add yours',"/auth/auth0" %>
+<% end %>
