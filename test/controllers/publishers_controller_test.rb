@@ -38,11 +38,11 @@ class PublishersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to publisher_url(@publisher)
   end
 
-  test "should destroy publisher" do
-    assert_difference('Publisher.count', -1) do
-      delete publisher_url(@publisher)
-    end
+  # test "should destroy publisher" do
+  #   assert_difference('Publisher.count', -1) do
+  #     delete publisher_url(@publisher)
+  #   end
 
-    assert_redirected_to publishers_url
-  end
+  #   assert_redirected_to publishers_url
+  # end
 end

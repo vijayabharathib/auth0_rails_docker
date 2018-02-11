@@ -1,4 +1,5 @@
 <aside>
+    <% if user_signed_in? %>
     <section class="shelves">
         <a href="/books">All</a>
         <a href="#">Wish List</a>
@@ -6,4 +7,5 @@
         <a href="#">Reading</a>
         <a href="#">Done</a>
     </section>
+    <% end %>
 </aside>

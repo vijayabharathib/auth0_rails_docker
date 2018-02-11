@@ -73,6 +73,12 @@ The url "http://localhost:3000/auth/oauth2/callback" is not in the list of allow
 18. add logout controller
 19. logout controller does not work as `secret.yml` needs to be updated with auth0 entries.
 
+## Get Shelf Up
+dc run --rm --user $(id -u):$(id -g) auth0 rails g model User email:string
+dc run --rm --user $(id -u):$(id -g) auth0 rails g resource Shelf type:integer user:references book:references
+
+dc run --rm --user $(id -u):$(id -g) auth0 rails db:migrate 
+
 ## Fine Tune
 * style app with scss
 * set up a short menu
