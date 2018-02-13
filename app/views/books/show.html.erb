@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :place,"Shelf"%>
-    <%= form.select(:place,options_for_select(Shelf.places.keys,"Select"),id: :shelf_place) 
+    <%= form.select(:place,options_for_select(Shelf.places.keys),:selected=>@place,:include_blank=>true,id: :shelf_place) 
     %>
   </div>
   <%= form.hidden_field :book_id, :value=>params[:id] %>

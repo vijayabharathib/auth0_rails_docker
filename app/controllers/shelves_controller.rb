@@ -23,9 +23,18 @@ class ShelvesController < ApplicationController
 
 
   def create
-    logger.debug shelf_params
-    @shelf = Shelf.new(shelf_params)
-    @shelf.user_id=current_user.id
+    # @book=current_user.books.find(params[:shelf][:book_id])
+    # if @book
+    #   @shelf=current_user.books.find(params[:shelf][:book_id]).shelves.first
+    #   if @shelf.nil?
+    #     @shelf = Shelf.new(shelf_params)
+    #   else
+    #     @shelf.place=params[:shelf][:place]
+    #   end
+    # end 
+    # @shelf.user_id=current_user.id
+    @shelf=Shelf.find_or_create_by(user_id: current_user.id, book_id: params[:shelf][:book_id])
+    @shelf.place=params[:shelf][:place]
     respond_to do |format|
       if @shelf.save
         format.html { redirect_to @shelf.book, notice: 'Book was successfully added.' }

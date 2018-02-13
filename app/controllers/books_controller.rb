@@ -14,8 +14,11 @@ class BooksController < ApplicationController
     @current_shelf=@book.shelves.by_user(current_user)
     if @current_shelf.blank?
       @shelf=Shelf.new
+      @place=""
     else 
       @shelf=@current_shelf
+      @place=@shelf.place
+
     end 
   end
 
