@@ -3,7 +3,7 @@ module Auth0Helper
     def user_signed_in?
         session[:userinfo].present?
     end
-
+    
     def authenticate_user!
         if user_signed_in?
             @auth0_user=session[:userinfo]
@@ -14,11 +14,11 @@ module Auth0Helper
             redirect_to login_path
         end
     end
-
+    
     def current_user
         @current_user
     end
-
+    
     def login_path
         root_path
     end

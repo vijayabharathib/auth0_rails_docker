@@ -4,5 +4,9 @@
   <h1>Bookshelf</h1>
   <h2>Built on Ruby on Rails secured with Auth0</h2>
   <p>A demo app Dev workflow with docker and deploy to Heroku</p>
-  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+  <% if user_signed_in? %>
+    <%=link_to "Logout", logout_logout_path, class:"btn btn-warning btn-lg" %>
+    <% else %>
+    <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+    <% end %>
 </section>

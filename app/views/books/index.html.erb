@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
+<header class="book_list_header">
 <h1>Books</h1>
 <% if user_signed_in? %>
 <%= link_to '+', new_book_path,class: "btn btn-circle btn-success" %>
 <% else %>
 <%= link_to 'Login to add a new book',"/auth/auth0" %>
 <% end %>
+</header>
 <ul class="book_list">
     <% @books.each do |book| %>
       <li class="book_entry">
@@ -19,5 +21,5 @@
       </li>
     <% end %>
 </ul>
-
+</div>
 <br>

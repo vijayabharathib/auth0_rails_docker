@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<article class="jumbotron">
+<h1><%= @book.title %></h1>
 
 <p>
   <strong>Isbn:</strong>
@@ -12,13 +9,25 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @book.author %>
+  <%= @book.author.name %>
 </p>
 
 <p>
   <strong>Publisher:</strong>
-  <%= @book.publisher %>
+  <%= @book.publisher.name %>
 </p>
+<%= form_with(model: @shelf, local: true) do |form| %>
 
+  <div class="field">
+    <%= form.label :place,"Shelf"%>
+    <%= form.select(:place,options_for_select(Shelf.places.keys,"Select"),id: :shelf_place) 
+    %>
+  </div>
+  <%= form.hidden_field :book_id, :value=>params[:id] %>
+  <div class="actions">
+    <%= form.submit "Move to shelf" %>
+  </div>
+<% end %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+</article>

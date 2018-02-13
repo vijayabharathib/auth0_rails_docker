@@ -25,7 +25,7 @@ a {
   color: $color-complement-4;
   text-decoration: none;
   &:visited {
-    color: #333;
+    color: $color-primary-3;
   }
 
   &:hover {
@@ -84,4 +84,10 @@ label {
   display: block;
 }
 
-
+.container {
+  @media (min-width: $beyond_tablet) {    
+    max-width: $beyond_tablet;
+    margin: 0 auto;
+  }
+  margin: 1em;
+}

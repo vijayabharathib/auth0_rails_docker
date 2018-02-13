@@ -1,11 +1,11 @@
 <aside>
     <% if user_signed_in? %>
     <section class="shelves">
-        <a href="/books">All</a>
-        <a href="#">Wish List</a>
-        <a href="#">Bought</a>
-        <a href="#">Reading</a>
-        <a href="#">Done</a>
+        <%= link_to "All",books_path %>
+        <%= link_to "Wish List",shelves_path(place: "wishlist") %>
+        <%= link_to "Bought",shelves_path(place: "bought") %>
+        <%= link_to "Reading",shelves_path(place: "reading") %>
+        <%= link_to "Done",shelves_path(place: "done") %>
     </section>
     <% end %>
 </aside>

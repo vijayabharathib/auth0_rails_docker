@@ -1,8 +1,8 @@
 <!-- app/views/dashboard/show.html.erb -->
 <section class="jumbotron  text-center">
-  <h2><img class="jumbo-thumbnail img-circle" src='<%= @user["info"]["image"] %>'/></h2>
-  <h1>Welcome, <%= @user["info"]["name"] %></h1>
-  <p><%= @user.inspect %>
+  <h2><img class="jumbo-thumbnail img-circle" 
+  src='<%= @current_user.info["image"] %>'/></h2>
+  <h1>Welcome, <%= @current_user.info["name"] %></h1>
 </section>
 
 <%= link_to "Logout",logout_logout_path, class: "btn btn-lg btn-warning" %>

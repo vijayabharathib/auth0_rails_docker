@@ -11,6 +11,12 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @current_shelf=@book.shelves.by_user(current_user)
+    if @current_shelf.blank?
+      @shelf=Shelf.new
+    else 
+      @shelf=@current_shelf
+    end 
   end
 
   # GET /books/new

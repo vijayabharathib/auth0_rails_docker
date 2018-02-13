@@ -3,29 +3,39 @@ class ShelvesController < ApplicationController
   before_action :set_shelf, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shelves = Shelf.by_user
+    if(params[:place]=="wishlist")
+      @shelves = Shelf.wishlist.by_user(@current_user) 
+    elsif(params[:place]=="bought")
+      @shelves = Shelf.bought.by_user(@current_user) 
+    elsif(params[:place]=="reading")
+      @shelves=Shelf.reading.by_user(@current_user) 
+    elsif(params[:place]=="done")
+      @shelves=Shelf.done.by_user(@current_user) 
+    else
+      @shelves=nil
+    end
   end
 
   def new
     @shelf = Shelf.new
+    @books=Book.all
   end
 
 
-#   # POST /books
-#   # POST /books.json
-#   def create
-#     @book = Book.new(book_params)
-
-#     respond_to do |format|
-#       if @book.save
-#         format.html { redirect_to @book, notice: 'Book was successfully created.' }
-#         format.json { render :show, status: :created, location: @book }
-#       else
-#         format.html { render :new }
-#         format.json { render json: @book.errors, status: :unprocessable_entity }
-#       end
-#     end
-#   end
+  def create
+    logger.debug shelf_params
+    @shelf = Shelf.new(shelf_params)
+    @shelf.user_id=current_user.id
+    respond_to do |format|
+      if @shelf.save
+        format.html { redirect_to @shelf.book, notice: 'Book was successfully added.' }
+        format.json { render :show, status: :created, location: @shelf.book }
+      else
+        format.html { render :new }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 #   # PATCH/PUT /books/1
 #   # PATCH/PUT /books/1.json
@@ -47,6 +57,6 @@ class ShelvesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shelf_params
-      params.require(:shelf).permit(:type, :user_id,:book_id)
+      params.require(:shelf).permit(:place, :book_id)
     end
 end

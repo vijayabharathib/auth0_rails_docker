@@ -23,6 +23,10 @@ docker-compose run auth0 rails db:migrate
 docker-compose run auth0 rails db:migrate RAILS_ENV=test
 * database seeding
 
+## rails console on docker
+dc run --rm auth0 /bin/bash
+rails c
+
 ## Setup Tests
 * setup tests
 docker-compose run --rm auth0 rails test
@@ -87,6 +91,5 @@ dc run --rm --user $(id -u):$(id -g) auth0 rails db:migrate
 ## Security
 Change the SECRET_KEY tokens used in snapshots/source codes. Especially for prod, use Heroku env variables
 
-
-
-
+## Offline development
+When you are not connected, it is difficult to develop (if your app needs authentication).

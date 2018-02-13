@@ -6,12 +6,22 @@
     width: 10em;
 }
 
+.book_list_header{
+    h1 {
+        display: inline-block;
+        margin-right: 1em;
+    }
+}
 .book_list {
     padding: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    @media (min-width: $beyond_tablet) {
+        max-width: $beyond_tablet;
+        margin: 0 auto;
+    }
 }
 
 .book_entry{
