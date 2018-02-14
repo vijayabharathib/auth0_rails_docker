@@ -46,7 +46,7 @@ run "rails db:migrate" within console given in heroku
 Change the code and commit
 It should trigger a build
 Use the log menu under options to check logs
-
+There is no 'post deployment' script to automate 'db:migrate' yet
 ## Travis Setup
 * add .travis.yml
 * create a separate database.yml file for travis (as the original one uses local test environment on docker, host name wouldn't match)

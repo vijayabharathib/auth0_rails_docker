@@ -34,8 +34,12 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    logger.debug params
+    @author=Author.find_or_create_by(name: params[:book][:author_id])
+    @publisher=Publisher.find_or_create_by(name: params[:book][:publisher_id])
     @book = Book.new(book_params)
-
+    @book.author_id=@author.id
+    @book.publisher_id=@publisher.id
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
