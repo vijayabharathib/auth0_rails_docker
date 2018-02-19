@@ -1,7 +1,12 @@
 
 <section class="jumbotron text-center">
-  <h2><img class="jumbo-thumbnail" src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
-  <h1>Ruby on Rails secured with Auth0</h1>
-  <p>Dev workflow with docker and deploy to Heroku</p>
-  <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+  <%= image_tag "book.svg",class: "hero jumbo-thumbnail" %>
+  <h1>Bookshelf</h1>
+  <h2>Built on Ruby on Rails secured with Auth0</h2>
+  <p>A demo app Dev workflow with docker and deploy to Heroku</p>
+  <% if user_signed_in? %>
+    <%=link_to "Logout", logout_logout_path, class:"btn btn-warning btn-lg" %>
+    <% else %>
+    <a class="btn btn-success btn-lg" href="/auth/auth0">Login</a>
+    <% end %>
 </section>

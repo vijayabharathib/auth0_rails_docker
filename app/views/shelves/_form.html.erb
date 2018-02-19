@@ -1,0 +1,21 @@
+<%= form_with(model: shelf, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.select(:place, Shelf.places.keys,id: :shelf_place) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_id %>
+    <%= form.select(:book_id, @books,id: :book_shelf_id) %>
+  </div>
+
+  <!--div class="field">
+    <%= form.label :book_id %>
+    <%= form.text_field :book_id, id: :book_shelf_id %>
+  </div-->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,10 +1,12 @@
 body {
-  background-color: #fff;
+  background-color: #eee;
   color: #333;
-  margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 p, ol, ul, td {
@@ -20,15 +22,14 @@ pre {
 }
 
 a {
-  color: #000;
-
+  color: $color-complement-4;
+  text-decoration: none;
   &:visited {
-    color: #666;
+    color: $color-primary-3;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    text-decoration: underline;
   }
 }
 
@@ -83,48 +84,10 @@ label {
   display: block;
 }
 
-.jumbotron {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 32em;
-  text-align: center;
-}
-
-.btn {
-  margin: 0 auto;
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px;
-  border: 1px solid grey;
-  border-radius: 3px;
-  &:link{
-    color: #fff;
+.container {
+  @media (min-width: $beyond_tablet) {    
+    max-width: $beyond_tablet;
+    margin: 0 auto;
   }
-  &:visited{
-    color: #fff;
-  }
-  &:hover{
-    color: #fff;
-  }
-  &:active{
-    color: #fff;
-  }
-}
-
-.btn-lg {
-  font-size: 2em;
-}
-
-.btn-success {
-  background: #66f;
-  &:hover {
-    background: #33f;
-  }
-}
-
-.btn-warning {
-  background: #c31;
-  &:hover{
-    background: #910;
-  }
+  margin: 1em;
 }

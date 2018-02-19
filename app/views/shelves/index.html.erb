@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<header class="book_list_header">
+<h1><%= params[:place] %></h1>
+</header>
+<ul class="book_list">
+    <% @shelves.each do |entry| %>
+      <li class="book_entry">
+        <h2><%= entry.book.title %></h2>
+        <div class="isbn"><%= entry.book.isbn %></div>
+        <div class="author"><%= entry.book.author.name %></div >
+        <div class="publisher"><%= entry.book.publisher.name %></div >
+      </li>
+    <% end %>
+</ul>
+<br>

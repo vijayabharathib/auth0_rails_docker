@@ -1,0 +1,43 @@
+.navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    background: #333;
+}
+
+.brand-info {
+    display: flex;
+}
+
+.logo-image {
+    width: 3em;
+}
+
+.topnav{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    align-items: stretch;
+}
+
+.title {
+    margin: auto 1em;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: $color-primary-2;
+}
+
+.nav-list-item {
+    margin: auto;
+}
+.nav-list-item .nav-item {
+    font-size: 1.2em;
+    margin: auto .5em;
+    text-decoration: none;
+    color: $color-complement-2;
+    &:hover {
+        color: #afa;
+        text-decoration: underline;
+    }
+}

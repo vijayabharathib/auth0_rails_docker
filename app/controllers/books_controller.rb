@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
@@ -10,6 +11,15 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @current_shelf=@book.shelves.by_user(current_user)
+    if @current_shelf.blank?
+      @shelf=Shelf.new
+      @place=""
+    else 
+      @shelf=@current_shelf
+      @place=@shelf.place
+
+    end 
   end
 
   # GET /books/new
@@ -24,8 +34,12 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    logger.debug params
+    @author=Author.find_or_create_by(name: params[:book][:author_id])
+    @publisher=Publisher.find_or_create_by(name: params[:book][:publisher_id])
     @book = Book.new(book_params)
-
+    @book.author_id=@author.id
+    @book.publisher_id=@publisher.id
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }

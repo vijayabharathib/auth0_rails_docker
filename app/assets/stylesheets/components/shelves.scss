@@ -1,0 +1,10 @@
+// Place all the styles related to the Shelves controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.shelves {
+    margin: 1em auto;
+    font-size: 1.2em;
+    @media (min-width: $beyond_tablet) {
+        max-width: 32em;
+    }
+}
