@@ -12,7 +12,7 @@ Heroku production environment: [https://bookstall.herokuapp.com/]
 ## Getting Started Locally
 
 Follow these steps to run project locally:
-1. Ensure you have [docker] and [docker-compose] installed.
+1. Ensure you have [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
 `docker -v` and `docker-compose -v` should return meaningful results showing versions.
 2. Clone the repository using `git clone git@github.com:vijayabharathib/auth0_rails_docker.git` or you can fork and use your own repository.
 3. The first time, run this command on a terminal : `docker-compose up --build` while you are inside the project folder. **This may take a while depending on the connection** as it will pull the necessary docker image, initiate the container and install gems required.
